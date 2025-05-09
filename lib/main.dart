@@ -1,45 +1,45 @@
 import 'package:flutter/material.dart';
-import 'sections/hero_section.dart';
-import 'sections/about_section.dart';
-import 'sections/project_section.dart';
-import 'sections/footer_section.dart';
+import 'package:flutter_portfolio/sections/home_section.dart';
 
-void main() => runApp(const PortfolioApp());
+void main() {
+  runApp(const MyApp());
+}
 
-class PortfolioApp extends StatelessWidget {
-  const PortfolioApp({super.key});
+class MyApp extends StatefulWidget {
+  const MyApp({super.key});
+
+  @override
+  State<MyApp> createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
+  ThemeMode _themeMode = ThemeMode.light;
+
+  void _toggleTheme() {
+    setState(() {
+      _themeMode =
+          _themeMode == ThemeMode.light ? ThemeMode.dark : ThemeMode.light;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'My Flutter Portfolio',
+      title: 'Personal Portfolio',
       debugShowCheckedModeBanner: false,
+      themeMode: _themeMode,
       theme: ThemeData(
-        fontFamily: 'Arial',
+        brightness: Brightness.light,
         primarySwatch: Colors.blue,
-        scaffoldBackgroundColor: Colors.white,
+        scaffoldBackgroundColor: const Color(0xFFF9FAFB),
+        useMaterial3: true,
       ),
-      home: const PortfolioHomePage(),
-    );
-  }
-}
-
-class PortfolioHomePage extends StatelessWidget {
-  const PortfolioHomePage({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      body: SingleChildScrollView(
-        child: Column(
-          children: const [
-            HeroSection(),
-            AboutSection(),
-            ProjectSection(),
-            FooterSection(),
-          ],
-        ),
+      darkTheme: ThemeData(
+        brightness: Brightness.dark,
+        scaffoldBackgroundColor: const Color(0xFF1A1A1A),
+        useMaterial3: true,
       ),
+      home: KodingWorksPage()
     );
   }
 }
