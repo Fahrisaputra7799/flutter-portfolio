@@ -8,7 +8,7 @@ class HoverIconButton extends StatefulWidget {
   const HoverIconButton({
     super.key,
     required this.icon,
-    required this.onPressed,
+    required this.onPressed, required int borderRadius, required Color backgroundColor, required int size, Color? color, required List<BoxShadow> shadow,
   });
 
   @override

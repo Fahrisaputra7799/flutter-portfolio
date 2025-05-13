@@ -1,45 +1,32 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_portfolio/sections/home_section.dart';
+import 'package:flutter_portfolio/pages/home_page.dart';
 
-void main() {
-  runApp(const MyApp());
-}
+void main() => runApp(const PortfolioApp());
 
-class MyApp extends StatefulWidget {
-  const MyApp({super.key});
+class PortfolioApp extends StatelessWidget {
+  const PortfolioApp({super.key});
 
   @override
-  State<MyApp> createState() => _MyAppState();
+  Widget build(BuildContext context) {
+    return const PortfolioHomePage();
+  }
 }
 
-class _MyAppState extends State<MyApp> {
-  ThemeMode _themeMode = ThemeMode.light;
+class PortfolioHomePage extends StatefulWidget {
+  const PortfolioHomePage({super.key});
 
-  void _toggleTheme() {
-    setState(() {
-      _themeMode =
-          _themeMode == ThemeMode.light ? ThemeMode.dark : ThemeMode.light;
-    });
-  }
+  @override
+  State<PortfolioHomePage> createState() => _PortfolioHomePageState();
+}
+
+class _PortfolioHomePageState extends State<PortfolioHomePage> {
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Personal Portfolio',
       debugShowCheckedModeBanner: false,
-      themeMode: _themeMode,
-      theme: ThemeData(
-        brightness: Brightness.light,
-        primarySwatch: Colors.blue,
-        scaffoldBackgroundColor: const Color(0xFFF9FAFB),
-        useMaterial3: true,
-      ),
-      darkTheme: ThemeData(
-        brightness: Brightness.dark,
-        scaffoldBackgroundColor: const Color(0xFF1A1A1A),
-        useMaterial3: true,
-      ),
-      home: KodingWorksPage()
+      title: 'Fhris App',
+      home: HomePage()
     );
   }
 }
