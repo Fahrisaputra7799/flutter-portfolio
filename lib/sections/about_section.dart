@@ -1,10 +1,22 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class AboutSection extends StatelessWidget {
   const AboutSection({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+    final isDark = theme.brightness == Brightness.dark;
+
+    final primaryTextColor = isDark ? Colors.white : const Color(0xFF1E293B);
+    final secondaryTextColor =
+        isDark ? Colors.grey[400] : const Color(0xFF475569);
+    final highlightColor =
+        isDark ? const Color(0xFF2563EB) : const Color(0xFF2563EB);
+    final accentColor =
+        isDark ? const Color(0xFFFFA408) : const Color(0xFFFFA408);
+
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 24.0),
       child: Column(
@@ -13,57 +25,20 @@ class AboutSection extends StatelessWidget {
           // Title: Who Am I
           Text(
             "Who Am I",
-            style: TextStyle(
+            style: GoogleFonts.merriweather(
+              fontSize: 22,
               fontWeight: FontWeight.bold,
-              fontSize: 24,
-              color: const Color(0xFF1E293B),
             ),
           ),
           const SizedBox(height: 16),
-          
+
           // Description with rich text
-          Text.rich(
-            TextSpan(
-              text:
-                  "Fresh graduate dengan semangat tinggi dalam pengembangan aplikasi mobile menggunakan Dart",
-              style: TextStyle(
-                fontSize: 16,
-                color: const Color(0xFF475569),
-                height: 1.6,
-              ),
-              children: [
-                TextSpan(
-                  text: " Flutter,",
-                  style: TextStyle(
-                    fontWeight: FontWeight.bold,
-                    color: const Color(0xFF2563EB),
-                    decoration: TextDecoration.underline,
-                  ),
-                ),
-                TextSpan(
-                  text: " dan ",
-                  style: TextStyle(
-                    fontWeight: FontWeight.normal,
-                    color: const Color(0xFF475569),
-                  ),
-                ),
-                TextSpan(
-                  text: "Firebase. ",
-                  style: TextStyle(
-                    fontWeight: FontWeight.bold,
-                    color: const Color(0xFFFFA408),
-                    decoration: TextDecoration.underline,
-                  ),
-                ),
-                TextSpan(
-                  text: "Berfokus pada solusi real-time dan siap untuk berkontribusi serta berkembang di dunia teknologi.",
-                ),
-              ],
-            ),
-            style: TextStyle(
-              fontSize: 16,
-              height: 1.6,
-              color: const Color(0xFF475569),
+          Text(
+            "A fresh graduate with a strong passion for mobile app development using Flutter, and Firebase. Focused on real-time solutions and ready to contribute and grow in the tech industry.",
+            style: GoogleFonts.montserrat(
+              fontSize: 18,
+              height: 1.7,
+              color: secondaryTextColor,
             ),
           ),
           const SizedBox(height: 24),

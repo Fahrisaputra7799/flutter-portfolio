@@ -7,31 +7,38 @@ class ContactSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+    final isDark = theme.brightness == Brightness.dark;
+
+    final primaryTextColor = isDark ? Colors.white : const Color(0xFF1E293B);
+    final secondaryTextColor = isDark ? Colors.grey[400] : const Color(0xFF64748B);
+    final cardColor = isDark ? Color(0xffffffff) : Colors.black;
+
     return Column(
       children: [
         Card(
-          color: Color(0xFF2563EB),
+          color: cardColor,
           shadowColor: Colors.grey.shade700,
           child: Padding(
             padding: const EdgeInsets.all(8.0),
-            child: const Text(
+            child: Text(
               "Contact",
               style: TextStyle(
                 fontSize: 13,
                 fontWeight: FontWeight.w600,
-                color: Colors.white,
+                color: isDark ? Colors.black : Colors.white,
                 letterSpacing: 1.2,
               ),
             ),
           ),
         ),
         const SizedBox(height: 8),
-        const Text(
+        Text(
           "Get in Touch",
           style: TextStyle(
             fontSize: 26,
             fontWeight: FontWeight.bold,
-            color: Color(0xFF1E293B),
+            color: primaryTextColor,
           ),
         ),
         const SizedBox(height: 10),
@@ -40,9 +47,9 @@ class ContactSection extends StatelessWidget {
           child: RichText(
             textAlign: TextAlign.center,
             text: TextSpan(
-              style: const TextStyle(
+              style: TextStyle(
                 fontSize: 15,
-                color: Color(0xFF334155),
+                color: secondaryTextColor,
                 height: 1.5,
               ),
               children: [
@@ -51,8 +58,8 @@ class ContactSection extends StatelessWidget {
                 ),
                 TextSpan(
                   text: "with a direct question on WhatsApp.",
-                  style: const TextStyle(
-                    color: Color(0xFF2563EB),
+                  style: TextStyle(
+                    color: cardColor,
                     fontWeight: FontWeight.w500,
                     decoration: TextDecoration.underline,
                   ),
