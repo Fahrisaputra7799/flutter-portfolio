@@ -10,8 +10,6 @@ class HeaderSection extends StatelessWidget {
     final isDark = theme.brightness == Brightness.dark;
 
     final primaryTextColor = isDark ? Colors.white : const Color(0xFF1E293B);
-    final secondaryTextColor =
-        isDark ? Colors.grey[400] : const Color(0xFF64748B);
 
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 24.0, vertical: 32),
@@ -29,15 +27,15 @@ class HeaderSection extends StatelessWidget {
                       TextSpan(
                         text: "Hi, I'm ",
                         style: GoogleFonts.merriweather(
-                          fontSize: 36,
-                          fontWeight: FontWeight.w600,
+                          fontSize: 38,
+                          fontWeight: FontWeight.bold,
                           color: primaryTextColor,
                         ),
                       ),
                       TextSpan(
                         text: "Fahri Saputra 👋",
                         style: GoogleFonts.merriweather(
-                          fontSize: 36,
+                          fontSize: 38,
                           fontWeight: FontWeight.bold,
                           color: primaryTextColor,
                         ),

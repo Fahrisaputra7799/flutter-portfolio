@@ -13,8 +13,7 @@ class HomePage extends ConsumerStatefulWidget {
   ConsumerState<HomePage> createState() => _HomePageState();
 }
 
-class _HomePageState extends ConsumerState<HomePage>
-    with SingleTickerProviderStateMixin {
+class _HomePageState extends ConsumerState<HomePage> with SingleTickerProviderStateMixin {
   late final AnimationController _controller;
   late final Animation<double> _fadeIn;
 
@@ -42,29 +41,28 @@ class _HomePageState extends ConsumerState<HomePage>
 
   @override
   Widget build(BuildContext context) {
-    // final fadeIn = ref.watch(fadeInProvider).state;
-
     return Scaffold(
       backgroundColor: Theme.of(context).scaffoldBackgroundColor,
-      body: Center(
-        child: Padding(
-          padding: const EdgeInsets.symmetric(vertical: 65, horizontal: 20),
-          child: ConstrainedBox(
-            constraints: const BoxConstraints(maxWidth: 800),
-            child: FadeTransition(
-              opacity: _fadeIn,
-              child: SingleChildScrollView(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    const HeaderSection(),
-                    const SizedBox(height: 40),
-                    const AboutSection(),
-                    const SizedBox(height: 48),
-                    const Center(child: ContactSection()),
-                    const SizedBox(height: 40),
-                    const Center(child: SocialSection()),
-                  ],
+      body: SafeArea(
+        child: Center(
+          child: Padding(
+            padding: const EdgeInsets.symmetric( horizontal: 20),
+            child: ConstrainedBox(
+              constraints: const BoxConstraints(maxWidth: 700),
+              child: FadeTransition(
+                opacity: _fadeIn,
+                child: SingleChildScrollView(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: const [
+                      HeaderSection(),
+                      AboutSection(),
+                      SizedBox(height: 48,),
+                      Center(child: ContactSection()),
+                      SizedBox(height: 50,),
+                      Center(child: SocialSection())
+                    ],
+                  ),
                 ),
               ),
             ),

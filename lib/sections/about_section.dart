@@ -9,14 +9,6 @@ class AboutSection extends StatelessWidget {
     final theme = Theme.of(context);
     final isDark = theme.brightness == Brightness.dark;
 
-    final primaryTextColor = isDark ? Colors.white : const Color(0xFF1E293B);
-    final secondaryTextColor =
-        isDark ? Colors.grey[400] : const Color(0xFF475569);
-    final highlightColor =
-        isDark ? const Color(0xFF2563EB) : const Color(0xFF2563EB);
-    final accentColor =
-        isDark ? const Color(0xFFFFA408) : const Color(0xFFFFA408);
-
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 24.0),
       child: Column(
@@ -26,8 +18,9 @@ class AboutSection extends StatelessWidget {
           Text(
             "Who Am I",
             style: GoogleFonts.merriweather(
-              fontSize: 22,
+              fontSize: 20,
               fontWeight: FontWeight.bold,
+              color: isDark? Colors.white : Colors.black
             ),
           ),
           const SizedBox(height: 16),
@@ -36,9 +29,9 @@ class AboutSection extends StatelessWidget {
           Text(
             "A fresh graduate with a strong passion for mobile app development using Flutter, and Firebase. Focused on real-time solutions and ready to contribute and grow in the tech industry.",
             style: GoogleFonts.montserrat(
-              fontSize: 18,
+              fontSize: 16,
               height: 1.7,
-              color: secondaryTextColor,
+              color: isDark? Colors.white : Colors.grey[700],
             ),
           ),
           const SizedBox(height: 24),
